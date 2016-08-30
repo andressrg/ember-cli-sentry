@@ -6,6 +6,9 @@ import config from '../config/environment';
 const assign = Ember.assign || Ember.merge;
 
 export function initialize(application) {
+  if (typeof FastBoot !== 'undefined') {
+    return;
+  }
 
   if (Ember.get(config, 'sentry.development') === true) {
     if (Ember.get(config, 'sentry.debug') === true) {

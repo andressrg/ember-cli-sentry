@@ -1,6 +1,10 @@
 import config from '../config/environment';
 
 export function initialize() {
+  if (typeof FastBoot !== 'undefined') {
+    return;
+  }
+
   const application = arguments[1] || arguments[0];
   const { serviceName = 'raven' } = config.sentry;
   const lookupName = `service:${serviceName}`;

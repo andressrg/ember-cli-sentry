@@ -45,7 +45,8 @@ let RavenService = Service.extend({
    * @type Ember.ComputedProperty
    */
   isRavenUsable: computed(function() {
-    return !!(window.Raven && window.Raven.isSetup() === true);
+    const isFastboot = typeof FastBoot !== 'undefined';
+    return !!(!isFastboot && window.Raven && window.Raven.isSetup() === true);
   }).volatile(),
 
   /**
